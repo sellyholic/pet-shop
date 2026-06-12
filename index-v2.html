@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PawLove — 프리미엄 반려동물 전문몰</title>
+  <link rel="stylesheet" href="style-v2.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Square+Peg&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard-dynamic-subset.min.css" />
+</head>
+<body>
+
+  <!-- ① 프로모 롤링 배너 -->
+  <div class="promo-bar" id="promoBar">
+    <button class="promo-arrow" id="promoPrev">‹</button>
+    <div class="promo-track-wrap">
+      <div class="promo-track" id="promoTrack">
+        <span class="promo-item active"><strong>VIP 정기배송 시</strong> 전제품 최저가 35% 추가 할인!</span>
+        <span class="promo-item">매일 쓰는 사료/모래, 첫 정기배송 <strong>50% 페이백</strong></span>
+        <span class="promo-item">카카오톡 채널 추가 시 <strong>3,000원 할인쿠폰</strong> 즉시 지급</span>
+        <span class="promo-item">회원가입 후 첫 구매 시 <strong>프리미엄 간식 100원</strong></span>
+        <span class="promo-item">이번 달 한정 릴레이 할인 이벤트 <strong>최대 77% SALE →</strong></span>
+      </div>
+    </div>
+    <button class="promo-arrow" id="promoNext">›</button>
+  </div>
+
+  <!-- ② 헤더 -->
+  <header class="header" id="header">
+    <div class="container header-inner">
+
+      <a href="#" class="logo">
+        <span class="logo-paw">🐾</span>
+        <span>PawLove</span>
+      </a>
+
+      <!-- GNB -->
+      <nav class="gnb">
+        <a href="#" class="gnb-item active">SHOP</a>
+        <a href="#" class="gnb-item">VIP CENTER</a>
+        <a href="#" class="gnb-item">NEW</a>
+        <a href="#" class="gnb-item">BEST</a>
+        <a href="#" class="gnb-item">EVENT</a>
+        <a href="#" class="gnb-item">BRAND</a>
+        <a href="#" class="gnb-item">COMMUNITY</a>
+      </nav>
+
+      <div class="header-utils">
+        <button class="util-btn" aria-label="검색">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+        <button class="util-btn" aria-label="찜">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
+        <button class="util-btn cart-trigger" aria-label="장바구니">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-dot">3</span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- 카테고리 서브메뉴 -->
+    <div class="subnav">
+      <div class="container subnav-inner">
+        <a href="#" class="sub-item active">ALL</a>
+        <a href="#" class="sub-item">FOR DOG</a>
+        <a href="#" class="sub-item">FOR CAT</a>
+        <a href="#" class="sub-item">사료/간식</a>
+        <a href="#" class="sub-item">건강/영양제</a>
+        <a href="#" class="sub-item">미용/위생</a>
+        <a href="#" class="sub-item">산책/놀이</a>
+        <a href="#" class="sub-item">정기배송</a>
+        <a href="#" class="sub-item collabo">COLLABO</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ③ 히어로 -->
+  <section class="hero">
+    <div class="hero-track" id="heroTrack">
+
+      <!-- Slide 1 -->
+      <div class="hero-slide" style="background:#f0ede8;">
+        <div class="container hero-content">
+          <div class="hero-text">
+            <p class="hero-eyebrow">2026 SUMMER COLLECTION</p>
+            <h1 class="hero-title">반려동물을<br />위한 선택,<br /><em>타협 없이.</em></h1>
+            <p class="hero-body">엄선한 프리미엄 원재료, 수의사가 검증한 성분.<br />우리 아이에게 가장 좋은 것만 골랐습니다.</p>
+            <div class="hero-ctas">
+              <a href="#" class="btn-primary">지금 쇼핑하기</a>
+              <a href="#" class="btn-outline">신상품 보기 →</a>
+            </div>
+          </div>
+          <div class="hero-visual slide1-visual">
+            <div class="hero-circle">
+              <span class="hero-pet">🐶</span>
+            </div>
+            <div class="hero-stat stat-a">
+              <span class="stat-num">4.9</span>
+              <span class="stat-label">평균 평점</span>
+            </div>
+            <div class="hero-stat stat-b">
+              <span class="stat-num">12만+</span>
+              <span class="stat-label">누적 구매자</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="hero-slide" style="background:#1a1a1a;">
+        <div class="container hero-content">
+          <div class="hero-text dark">
+            <p class="hero-eyebrow">VIP MEMBERSHIP</p>
+            <h1 class="hero-title">VIP 회원이라면<br />전제품 추가<br /><em class="gold">35% 할인.</em></h1>
+            <p class="hero-body" style="color:rgba(255,255,255,.6);">정기배송 신청 시 최저가 보장.<br />VIP 전용 사은품 + 무료배송.</p>
+            <div class="hero-ctas">
+              <a href="#" class="btn-gold">VIP 가입하기</a>
+              <a href="#" class="btn-ghost">혜택 자세히 →</a>
+            </div>
+          </div>
+          <div class="hero-visual slide2-visual">
+            <div class="vip-badge-big">
+              <span class="vip-crown">♛</span>
+              <span class="vip-text">VIP</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="hero-slide" style="background:#f5f0e8;">
+        <div class="container hero-content">
+          <div class="hero-text">
+            <p class="hero-eyebrow">SUMMER SALE — UP TO 50% OFF</p>
+            <h1 class="hero-title">여름 특가전.<br />최대 <em>50% 할인.</em></h1>
+            <p class="hero-body">쿨매트, 여름 간식, 수분 영양제까지.<br />기간 한정 특가로 만나보세요.</p>
+            <div class="hero-ctas">
+              <a href="#" class="btn-primary">세일 상품 보기</a>
+            </div>
+          </div>
+          <div class="hero-visual slide3-visual">
+            <div class="sale-tag-big">SALE<br/>50%</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 슬라이드 컨트롤 -->
+    <div class="hero-controls">
+      <button class="hero-arrow prev" id="heroPrev">←</button>
+      <div class="hero-indicators" id="heroIndicators">
+        <button class="indicator active"></button>
+        <button class="indicator"></button>
+        <button class="indicator"></button>
+      </div>
+      <button class="hero-arrow next" id="heroNext">→</button>
+    </div>
+  </section>
+
+  <!-- ④ 카테고리 빠른 접근 -->
+  <section class="quick-cats">
+    <div class="container">
+      <div class="quick-cats-grid">
+        <a href="#" class="qcat">
+          <div class="qcat-img" style="background:#f0ede8;">🐶</div>
+          <span>강아지</span>
+        </a>
+        <a href="#" class="qcat">
+          <div class="qcat-img" style="background:#ede8f0;">🐱</div>
+          <span>고양이</span>
+        </a>
+        <a href="#" class="qcat">
+          <div class="qcat-img" style="background:#e8f0ed;">🐹</div>
+          <span>소동물</span>
+        </a>
+        <a href="#" class="qcat">
+          <div class="qcat-img" style="background:#f0f0e8;">🐦</div>
+          <span>조류</span>
+        </a>
+        <a href="#" class="qcat">
+          <div class="qcat-img" style="background:#e8edf0;">🐠</div>
+          <span>어류</span>
+        </a>
+        <a href="#" class="qcat">
+          <div class="qcat-img" style="background:#f0e8e8;">🦴</div>
+          <span>사료/간식</span>
+        </a>
+        <a href="#" class="qcat">
+          <div class="qcat-img" style="background:#e8f0f0;">💊</div>
+          <span>건강/영양</span>
+        </a>
+        <a href="#" class="qcat">
+          <div class="qcat-img" style="background:#f0ece8;">✂️</div>
+          <span>미용/위생</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑤ 신상품 -->
+  <section class="section" id="new">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="section-eyebrow">Take a Look!</p>
+          <h2 class="section-title">New Arrivals</h2>
+          <p class="section-sub">새롭게 출시된 제품들을 만나보세요</p>
+        </div>
+        <a href="#" class="link-more">전체보기 →</a>
+      </div>
+
+      <div class="products-grid">
+
+        <article class="pcard">
+          <div class="pcard-img-wrap">
+            <div class="pcard-img" style="background:#f0ede8;">
+              <span class="pcard-emoji">🌿</span>
+            </div>
+            <span class="badge badge-new">NEW</span>
+            <button class="wish" aria-label="찜하기">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+          </div>
+          <div class="pcard-body">
+            <p class="pcard-brand">오리젠</p>
+            <h3 class="pcard-name">오가닉 그레인프리 사료 1.8kg</h3>
+            <div class="pcard-rating"><span class="stars">★★★★★</span><span class="rcnt">(2,104)</span></div>
+            <div class="pcard-prices">
+              <span class="price-orig">68,000원</span>
+              <div class="price-row">
+                <span class="price-sale">47,600원</span>
+                <span class="price-rate">30%</span>
+              </div>
+              <div class="price-vip">
+                <span class="vip-tag">VIP</span>
+                <span class="price-vip-val">30,940원</span>
+              </div>
+            </div>
+          </div>
+          <div class="pcard-actions">
+            <button class="btn-cart js-cart">장바구니 담기</button>
+            <button class="btn-buy">구매하기</button>
+          </div>
+        </article>
+
+        <article class="pcard">
+          <div class="pcard-img-wrap">
+            <div class="pcard-img" style="background:#ede8f0;">
+              <span class="pcard-emoji">🛁</span>
+            </div>
+            <span class="badge badge-new">NEW</span>
+            <button class="wish" aria-label="찜하기">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+          </div>
+          <div class="pcard-body">
+            <p class="pcard-brand">헬로펫</p>
+            <h3 class="pcard-name">저자극 오가닉 샴푸 & 컨디셔너 세트</h3>
+            <div class="pcard-rating"><span class="stars">★★★★☆</span><span class="rcnt">(876)</span></div>
+            <div class="pcard-prices">
+              <span class="price-orig">36,000원</span>
+              <div class="price-row">
+                <span class="price-sale">25,200원</span>
+                <span class="price-rate">30%</span>
+              </div>
+              <div class="price-vip">
+                <span class="vip-tag">VIP</span>
+                <span class="price-vip-val">16,380원</span>
+              </div>
+            </div>
+          </div>
+          <div class="pcard-actions">
+            <button class="btn-cart js-cart">장바구니 담기</button>
+            <button class="btn-buy">구매하기</button>
+          </div>
+        </article>
+
+        <article class="pcard">
+          <div class="pcard-img-wrap">
+            <div class="pcard-img" style="background:#e8f0ed;">
+              <span class="pcard-emoji">🏠</span>
+            </div>
+            <button class="wish" aria-label="찜하기">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+          </div>
+          <div class="pcard-body">
+            <p class="pcard-brand">홈펫</p>
+            <h3 class="pcard-name">천연 사이잘 고양이 스크래처 타워 L</h3>
+            <div class="pcard-rating"><span class="stars">★★★★★</span><span class="rcnt">(1,432)</span></div>
+            <div class="pcard-prices">
+              <div class="price-row">
+                <span class="price-sale" style="font-size:1.05rem;">89,000원</span>
+              </div>
+              <div class="price-vip">
+                <span class="vip-tag">VIP</span>
+                <span class="price-vip-val">57,850원</span>
+              </div>
+            </div>
+          </div>
+          <div class="pcard-actions">
+            <button class="btn-cart js-cart">장바구니 담기</button>
+            <button class="btn-buy">구매하기</button>
+          </div>
+        </article>
+
+        <article class="pcard">
+          <div class="pcard-img-wrap">
+            <div class="pcard-img" style="background:#f0f0e8;">
+              <span class="pcard-emoji">💊</span>
+            </div>
+            <span class="badge badge-new">NEW</span>
+            <button class="wish" aria-label="찜하기">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+          </div>
+          <div class="pcard-body">
+            <p class="pcard-brand">닥터펫</p>
+            <h3 class="pcard-name">관절 & 면역 복합 영양제 60정</h3>
+            <div class="pcard-rating"><span class="stars">★★★★★</span><span class="rcnt">(3,287)</span></div>
+            <div class="pcard-prices">
+              <span class="price-orig">42,000원</span>
+              <div class="price-row">
+                <span class="price-sale">33,600원</span>
+                <span class="price-rate">20%</span>
+              </div>
+              <div class="price-vip">
+                <span class="vip-tag">VIP</span>
+                <span class="price-vip-val">21,840원</span>
+              </div>
+            </div>
+          </div>
+          <div class="pcard-actions">
+            <button class="btn-cart js-cart">장바구니 담기</button>
+            <button class="btn-buy">구매하기</button>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑥ VIP 배너 -->
+  <section class="vip-banner">
+    <div class="container vip-inner">
+      <div class="vip-left">
+        <p class="vip-eyebrow">EXCLUSIVE MEMBERSHIP</p>
+        <h2 class="vip-title">VIP 회원 혜택</h2>
+        <ul class="vip-list">
+          <li><span class="vip-check">✓</span> 전제품 정기배송 35% 추가 할인</li>
+          <li><span class="vip-check">✓</span> 월 1회 VIP 전용 사은품 증정</li>
+          <li><span class="vip-check">✓</span> 신상품 우선 구매권</li>
+          <li><span class="vip-check">✓</span> 1:1 전담 수의사 상담</li>
+        </ul>
+        <a href="#" class="btn-gold">VIP 멤버십 가입하기</a>
+      </div>
+      <div class="vip-right">
+        <div class="vip-card">
+          <div class="vc-crown">♛</div>
+          <div class="vc-label">VIP MEMBER</div>
+          <div class="vc-name">PawLove</div>
+          <div class="vc-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="vc-info">
+            <span>회원 등급</span>
+            <span class="vc-grade">GOLD VIP</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑦ BEST 상품 -->
+  <section class="section" id="best">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="section-eyebrow">Most Loved</p>
+          <h2 class="section-title">Best Sellers</h2>
+          <p class="section-sub">페스룸의 가장 사랑받는 제품들</p>
+        </div>
+        <div class="tab-group">
+          <button class="tab active" data-tab="all">전체</button>
+          <button class="tab" data-tab="dog">강아지</button>
+          <button class="tab" data-tab="cat">고양이</button>
+          <button class="tab" data-tab="health">건강</button>
+        </div>
+      </div>
+
+      <div class="products-grid">
+
+        <article class="pcard">
+          <div class="pcard-img-wrap">
+            <div class="pcard-img" style="background:#f0ede8;">
+              <span class="pcard-emoji">🦴</span>
+            </div>
+            <span class="badge badge-best">BEST</span>
+            <button class="wish" aria-label="찜하기">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+          </div>
+          <div class="pcard-body">
+            <p class="pcard-brand">로얄캐닌</p>
+            <h3 class="pcard-name">어덜트 퓨어 다이제스티브 케어 2kg</h3>
+            <div class="pcard-rating"><span class="stars">★★★★★</span><span class="rcnt">(5,821)</span></div>
+            <div class="pcard-prices">
+              <span class="price-orig">52,000원</span>
+              <div class="price-row">
+                <span class="price-sale">41,600원</span>
+                <span class="price-rate">20%</span>
+              </div>
+              <div class="price-vip">
+                <span class="vip-tag">VIP</span>
+                <span class="price-vip-val">27,040원</span>
+              </div>
+            </div>
+          </div>
+          <div class="pcard-actions">
+            <button class="btn-cart js-cart">장바구니 담기</button>
+            <button class="btn-buy">구매하기</button>
+          </div>
+        </article>
+
+        <article class="pcard">
+          <div class="pcard-img-wrap">
+            <div class="pcard-img" style="background:#e8edf0;">
+              <span class="pcard-emoji">😴</span>
+            </div>
+            <span class="badge badge-best">BEST</span>
+            <span class="badge badge-sale" style="top:36px;">SALE</span>
+            <button class="wish" aria-label="찜하기">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+          </div>
+          <div class="pcard-body">
+            <p class="pcard-brand">퍼피러브</p>
+            <h3 class="pcard-name">메모리폼 정형외과 쿠션 침대 M사이즈</h3>
+            <div class="pcard-rating"><span class="stars">★★★★★</span><span class="rcnt">(3,109)</span></div>
+            <div class="pcard-prices">
+              <span class="price-orig">58,000원</span>
+              <div class="price-row">
+                <span class="price-sale">34,800원</span>
+                <span class="price-rate">40%</span>
+              </div>
+              <div class="price-vip">
+                <span class="vip-tag">VIP</span>
+                <span class="price-vip-val">22,620원</span>
+              </div>
+            </div>
+          </div>
+          <div class="pcard-actions">
+            <button class="btn-cart js-cart">장바구니 담기</button>
+            <button class="btn-buy">구매하기</button>
+          </div>
+        </article>
+
+        <article class="pcard">
+          <div class="pcard-img-wrap">
+            <div class="pcard-img" style="background:#f0e8e8;">
+              <span class="pcard-emoji">🧸</span>
+            </div>
+            <span class="badge badge-best">BEST</span>
+            <button class="wish" aria-label="찜하기">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+          </div>
+          <div class="pcard-body">
+            <p class="pcard-brand">캣토이</p>
+            <h3 class="pcard-name">고양이 낚싯대 깃털 인터랙티브 세트</h3>
+            <div class="pcard-rating"><span class="stars">★★★★★</span><span class="rcnt">(4,502)</span></div>
+            <div class="pcard-prices">
+              <span class="price-orig">22,000원</span>
+              <div class="price-row">
+                <span class="price-sale">15,400원</span>
+                <span class="price-rate">30%</span>
+              </div>
+              <div class="price-vip">
+                <span class="vip-tag">VIP</span>
+                <span class="price-vip-val">10,010원</span>
+              </div>
+            </div>
+          </div>
+          <div class="pcard-actions">
+            <button class="btn-cart js-cart">장바구니 담기</button>
+            <button class="btn-buy">구매하기</button>
+          </div>
+        </article>
+
+        <article class="pcard">
+          <div class="pcard-img-wrap">
+            <div class="pcard-img" style="background:#ece8f0;">
+              <span class="pcard-emoji">🎒</span>
+            </div>
+            <button class="wish" aria-label="찜하기">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+            </button>
+          </div>
+          <div class="pcard-body">
+            <p class="pcard-brand">어반펫</p>
+            <h3 class="pcard-name">항공 기내반입 가능 투명 캐리어 S/M</h3>
+            <div class="pcard-rating"><span class="stars">★★★★☆</span><span class="rcnt">(987)</span></div>
+            <div class="pcard-prices">
+              <div class="price-row">
+                <span class="price-sale" style="font-size:1.05rem;">78,000원</span>
+              </div>
+              <div class="price-vip">
+                <span class="vip-tag">VIP</span>
+                <span class="price-vip-val">50,700원</span>
+              </div>
+            </div>
+          </div>
+          <div class="pcard-actions">
+            <button class="btn-cart js-cart">장바구니 담기</button>
+            <button class="btn-buy">구매하기</button>
+          </div>
+        </article>
+
+      </div>
+
+      <div class="load-wrap">
+        <button class="btn-load">상품 더보기 <span class="load-count">(총 248개)</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑧ 이벤트 배너 2단 -->
+  <section class="event-banners">
+    <div class="container">
+      <div class="event-grid">
+        <div class="event-card dark">
+          <div class="ec-text">
+            <p class="ec-tag">LIMITED OFFER</p>
+            <h3>여름 쿨링<br />특가전</h3>
+            <p class="ec-desc">쿨매트 · 쿨하네스 · 냉감사료<br />최대 50% 할인</p>
+            <a href="#" class="btn-outline-inv">바로 가기 →</a>
+          </div>
+          <div class="ec-deco">❄️</div>
+        </div>
+        <div class="event-card light">
+          <div class="ec-text">
+            <p class="ec-tag" style="color:#c8a96e;">VIP ONLY</p>
+            <h3>정기배송<br />첫 달 무료</h3>
+            <p class="ec-desc">VIP 신규 가입 시<br />첫 정기배송 100% 캐시백</p>
+            <a href="#" class="btn-primary" style="font-size:0.82rem;padding:11px 20px;">VIP 혜택 받기</a>
+          </div>
+          <div class="ec-deco" style="color:#c8a96e;">♛</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑨ 브랜드 스트립 -->
+  <section class="brands-section">
+    <div class="container">
+      <p class="section-eyebrow" style="text-align:center;margin-bottom:24px;">TRUSTED BRANDS</p>
+      <div class="brands-track">
+        <div class="brand-item">오리젠</div>
+        <div class="brand-item">로얄캐닌</div>
+        <div class="brand-item">힐스</div>
+        <div class="brand-item">퍼피러브</div>
+        <div class="brand-item">닥터펫</div>
+        <div class="brand-item">캣토이</div>
+        <div class="brand-item">어반펫</div>
+        <div class="brand-item">홈펫</div>
+        <div class="brand-item">헬로펫</div>
+        <div class="brand-item">네이처스베스트</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑩ 고객 후기 -->
+  <section class="section reviews-section">
+    <div class="container">
+      <div class="section-head">
+        <div>
+          <p class="section-eyebrow">A Companion Story</p>
+          <h2 class="section-title">Customer Reviews</h2>
+          <p class="section-sub">PawLove와 함께하는 반려동물 생활 이야기</p>
+        </div>
+        <a href="#" class="link-more">전체 후기 →</a>
+      </div>
+
+      <div class="reviews-grid">
+
+        <div class="review-card">
+          <div class="rv-top">
+            <div class="rv-avatar" style="background:#f0ede8;">🐶</div>
+            <div class="rv-meta">
+              <strong>골든맘 김지은</strong>
+              <div class="stars">★★★★★</div>
+            </div>
+            <div class="rv-date">2026.05.12</div>
+          </div>
+          <p class="rv-body">"오리젠 사료로 바꾼 지 한 달, 털이 눈에 띄게 윤기나고 소화도 훨씬 잘 해요. 원재료가 확실히 다르다는 걸 느껴요. 재구매는 당연히 정기배송으로."</p>
+          <div class="rv-product">
+            <span class="rv-product-badge">구매 상품</span>
+            오리지널 그레인프리 사료 1.8kg
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="rv-top">
+            <div class="rv-avatar" style="background:#ede8f0;">🐱</div>
+            <div class="rv-meta">
+              <strong>냥집사 박민수</strong>
+              <div class="stars">★★★★★</div>
+            </div>
+            <div class="rv-date">2026.05.08</div>
+          </div>
+          <p class="rv-body">"스크래처 타워 품질이 정말 좋아요. 천연 사이잘이라 냄새도 없고 고양이가 정말 좋아합니다. 배송도 빠르고 포장도 매우 꼼꼼했어요."</p>
+          <div class="rv-product">
+            <span class="rv-product-badge">구매 상품</span>
+            천연 사이잘 고양이 스크래처 타워 L
+          </div>
+        </div>
+
+        <div class="review-card">
+          <div class="rv-top">
+            <div class="rv-avatar" style="background:#e8f0ed;">🐾</div>
+            <div class="rv-meta">
+              <strong>반려견맘 이수진</strong>
+              <div class="stars">★★★★★</div>
+            </div>
+            <div class="rv-date">2026.04.29</div>
+          </div>
+          <p class="rv-body">"VIP 정기배송 시작하고 나서 비용이 확 줄었어요. 35% 추가 할인이 이렇게 클 줄 몰랐는데, 매달 5만원 이상 아끼는 것 같아요. 강추입니다."</p>
+          <div class="rv-product">
+            <span class="rv-product-badge">구매 상품</span>
+            VIP 정기배송 멤버십
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑪ 서비스 혜택 -->
+  <section class="benefits-bar">
+    <div class="container benefits-grid">
+      <div class="benefit">
+        <div class="benefit-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <div>
+          <p class="benefit-title">무료배송</p>
+          <p class="benefit-desc">5만원 이상 전국 무료</p>
+        </div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-2.12-9.36L23 10"/></svg>
+        </div>
+        <div>
+          <p class="benefit-title">30일 반품 보장</p>
+          <p class="benefit-desc">구매 후 30일 이내 무료</p>
+        </div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <p class="benefit-title">당일 출고</p>
+          <p class="benefit-desc">오후 2시 이전 주문 완료</p>
+        </div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        </div>
+        <div>
+          <p class="benefit-title">수의사 상담</p>
+          <p class="benefit-desc">VIP 전담 1:1 케어</p>
+        </div>
+      </div>
+      <div class="benefit">
+        <div class="benefit-icon">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div>
+          <p class="benefit-title">적립 포인트</p>
+          <p class="benefit-desc">구매금액의 최대 5%</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ⑫ 푸터 -->
+  <footer class="footer">
+    <div class="container footer-inner">
+
+      <div class="footer-brand">
+        <a href="#" class="logo footer-logo">
+          <span class="logo-paw">🐾</span>
+          <span>PawLove</span>
+        </a>
+        <p class="footer-tagline">반려동물과 함께하는 일상,<br />타협 없이 프리미엄으로.</p>
+        <div class="footer-sns">
+          <a href="#" aria-label="Instagram">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+          </a>
+          <a href="#" aria-label="Facebook">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-links">
+        <div class="footer-col">
+          <h5>SHOP</h5>
+          <a href="#">강아지 용품</a>
+          <a href="#">고양이 용품</a>
+          <a href="#">사료 / 간식</a>
+          <a href="#">건강 / 영양제</a>
+          <a href="#">미용 / 위생</a>
+          <a href="#">신상품</a>
+        </div>
+        <div class="footer-col">
+          <h5>VIP CENTER</h5>
+          <a href="#">VIP 혜택 안내</a>
+          <a href="#">정기배송 신청</a>
+          <a href="#">멤버십 등급</a>
+          <a href="#">VIP 전용관</a>
+        </div>
+        <div class="footer-col">
+          <h5>SUPPORT</h5>
+          <a href="#">공지사항</a>
+          <a href="#">자주 묻는 질문</a>
+          <a href="#">1:1 문의</a>
+          <a href="#">배송 조회</a>
+          <a href="#">교환 / 반품</a>
+        </div>
+        <div class="footer-col">
+          <h5>COMPANY</h5>
+          <a href="#">회사 소개</a>
+          <a href="#">브랜드 스토리</a>
+          <a href="#">파트너십</a>
+          <a href="#">채용</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-inner">
+        <div class="footer-legal">
+          <a href="#">이용약관</a>
+          <span>|</span>
+          <a href="#" style="font-weight:700;">개인정보처리방침</a>
+          <span>|</span>
+          <a href="#">사업자정보확인</a>
+        </div>
+        <p class="footer-copy">
+          (주)PawLove · 대표: 김반려 · 사업자등록번호: 123-45-67890 · 통신판매업신고: 2026-서울강남-0001
+          <br />고객센터: 1644-9603 · MON–FRI 10:00–17:00 (점심 12:30–13:30)
+          <br />© 2026 PawLove Corp. All rights reserved.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- 장바구니 토스트 -->
+  <div class="toast" id="toast">장바구니에 추가되었습니다</div>
+
+  <!-- 장바구니 플로팅 버튼 -->
+  <div class="fab-cart" id="fabCart">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+    <span class="fab-count" id="fabCount">0</span>
+  </div>
+
+  <script src="script-v2.js"></script>
+</body>
+</html>

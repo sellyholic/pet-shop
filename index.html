@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PawLove - 반려동물 전문 쇼핑몰</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- 상단 공지 배너 -->
+  <div class="top-banner">
+    <p>🎉 신규 회원 가입 시 <strong>10% 할인 쿠폰</strong> 즉시 지급! &nbsp;|&nbsp; 5만원 이상 구매 시 <strong>무료배송</strong></p>
+  </div>
+
+  <!-- 헤더 -->
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#" class="logo">
+        <span class="logo-icon">🐾</span>
+        <span class="logo-text">PawLove</span>
+      </a>
+
+      <nav class="nav">
+        <a href="#">강아지</a>
+        <a href="#">고양이</a>
+        <a href="#">소동물</a>
+        <a href="#">사료/간식</a>
+        <a href="#">건강/미용</a>
+        <a href="#">장난감</a>
+        <a href="#">용품/악세서리</a>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" title="검색">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+        </button>
+        <button class="icon-btn" title="찜목록">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        </button>
+        <button class="icon-btn cart-btn" title="장바구니">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+          <span class="cart-count">3</span>
+        </button>
+        <a href="#" class="btn btn-outline">로그인</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- 히어로 섹션 -->
+  <section class="hero">
+    <div class="hero-slides">
+      <div class="hero-slide active" style="background: linear-gradient(135deg, #fff7ed 0%, #fed7aa 100%);">
+        <div class="container hero-content">
+          <div class="hero-text">
+            <span class="hero-badge">신상품 출시</span>
+            <h1>우리 아이를 위한<br /><span class="highlight">최고의 선물</span></h1>
+            <p>프리미엄 반려동물 용품을 합리적인 가격으로<br />지금 바로 만나보세요.</p>
+            <div class="hero-btns">
+              <a href="#" class="btn btn-primary">쇼핑 시작하기</a>
+              <a href="#" class="btn btn-ghost">신상품 보기</a>
+            </div>
+          </div>
+          <div class="hero-image">
+            <div class="hero-img-wrapper">
+              <div class="floating-card card-1">
+                <span>⭐</span> 평점 4.9
+              </div>
+              <div class="floating-card card-2">
+                <span>🚚</span> 익일 배송
+              </div>
+              <div class="pet-emoji-hero">🐶</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </section>
+
+  <!-- 카테고리 섹션 -->
+  <section class="section categories-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>카테고리</h2>
+        <a href="#" class="view-all">전체보기 →</a>
+      </div>
+      <div class="categories-grid">
+        <a href="#" class="category-card">
+          <div class="category-icon" style="background:#fff0f0;">🐶</div>
+          <span>강아지</span>
+        </a>
+        <a href="#" class="category-card">
+          <div class="category-icon" style="background:#f0f4ff;">🐱</div>
+          <span>고양이</span>
+        </a>
+        <a href="#" class="category-card">
+          <div class="category-icon" style="background:#f0fff4;">🐹</div>
+          <span>소동물</span>
+        </a>
+        <a href="#" class="category-card">
+          <div class="category-icon" style="background:#fffbeb;">🐦</div>
+          <span>조류</span>
+        </a>
+        <a href="#" class="category-card">
+          <div class="category-icon" style="background:#fdf4ff;">🐠</div>
+          <span>어류/파충류</span>
+        </a>
+        <a href="#" class="category-card">
+          <div class="category-icon" style="background:#fff0f0;">🦴</div>
+          <span>사료/간식</span>
+        </a>
+        <a href="#" class="category-card">
+          <div class="category-icon" style="background:#f0f9ff;">🏥</div>
+          <span>건강/영양제</span>
+        </a>
+        <a href="#" class="category-card">
+          <div class="category-icon" style="background:#fff7ed;">✂️</div>
+          <span>미용/위생</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 프로모션 배너 -->
+  <section class="promo-banners">
+    <div class="container">
+      <div class="promo-grid">
+        <div class="promo-card promo-orange">
+          <div class="promo-text">
+            <span class="promo-tag">SALE</span>
+            <h3>여름 특가전</h3>
+            <p>강아지 쿨매트 최대 40% 할인</p>
+            <a href="#" class="btn btn-white">자세히 보기</a>
+          </div>
+          <div class="promo-emoji">❄️🐾</div>
+        </div>
+        <div class="promo-card promo-purple">
+          <div class="promo-text">
+            <span class="promo-tag">NEW</span>
+            <h3>신규 입고</h3>
+            <p>프리미엄 오가닉 사료 컬렉션</p>
+            <a href="#" class="btn btn-white">바로가기</a>
+          </div>
+          <div class="promo-emoji">🌿🐱</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 인기 상품 -->
+  <section class="section products-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>인기 상품</h2>
+        <div class="tab-group">
+          <button class="tab active">전체</button>
+          <button class="tab">강아지</button>
+          <button class="tab">고양이</button>
+          <button class="tab">소동물</button>
+        </div>
+      </div>
+
+      <div class="products-grid">
+
+        <div class="product-card">
+          <div class="product-img" style="background: linear-gradient(135deg, #fef3c7, #fde68a);">
+            <div class="product-emoji">🦴</div>
+            <span class="badge badge-hot">BEST</span>
+            <button class="wish-btn">♡</button>
+          </div>
+          <div class="product-info">
+            <span class="product-brand">오리젠</span>
+            <h3 class="product-name">오리지널 그레인프리 사료 2kg</h3>
+            <div class="product-rating">
+              <span class="stars">★★★★★</span>
+              <span class="review-count">(1,284)</span>
+            </div>
+            <div class="product-price">
+              <span class="original-price">58,000원</span>
+              <span class="sale-price">46,400원</span>
+              <span class="discount-rate">20%</span>
+            </div>
+          </div>
+          <button class="btn btn-primary add-cart">장바구니 담기</button>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img" style="background: linear-gradient(135deg, #dbeafe, #bfdbfe);">
+            <div class="product-emoji">😴</div>
+            <span class="badge badge-new">NEW</span>
+            <button class="wish-btn">♡</button>
+          </div>
+          <div class="product-info">
+            <span class="product-brand">퍼피러브</span>
+            <h3 class="product-name">메모리폼 정형외과 쿠션 침대 M</h3>
+            <div class="product-rating">
+              <span class="stars">★★★★☆</span>
+              <span class="review-count">(892)</span>
+            </div>
+            <div class="product-price">
+              <span class="sale-price">39,000원</span>
+            </div>
+          </div>
+          <button class="btn btn-primary add-cart">장바구니 담기</button>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img" style="background: linear-gradient(135deg, #d1fae5, #a7f3d0);">
+            <div class="product-emoji">🧸</div>
+            <button class="wish-btn">♡</button>
+          </div>
+          <div class="product-info">
+            <span class="product-brand">캣토이</span>
+            <h3 class="product-name">고양이 낚싯대 깃털 장난감 세트</h3>
+            <div class="product-rating">
+              <span class="stars">★★★★★</span>
+              <span class="review-count">(2,041)</span>
+            </div>
+            <div class="product-price">
+              <span class="original-price">18,000원</span>
+              <span class="sale-price">12,600원</span>
+              <span class="discount-rate">30%</span>
+            </div>
+          </div>
+          <button class="btn btn-primary add-cart">장바구니 담기</button>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img" style="background: linear-gradient(135deg, #fce7f3, #fbcfe8);">
+            <div class="product-emoji">🚿</div>
+            <span class="badge badge-sale">SALE</span>
+            <button class="wish-btn">♡</button>
+          </div>
+          <div class="product-info">
+            <span class="product-brand">헬로펫</span>
+            <h3 class="product-name">저자극 펫 샴푸 & 컨디셔너 세트</h3>
+            <div class="product-rating">
+              <span class="stars">★★★★☆</span>
+              <span class="review-count">(567)</span>
+            </div>
+            <div class="product-price">
+              <span class="original-price">32,000원</span>
+              <span class="sale-price">22,400원</span>
+              <span class="discount-rate">30%</span>
+            </div>
+          </div>
+          <button class="btn btn-primary add-cart">장바구니 담기</button>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img" style="background: linear-gradient(135deg, #ede9fe, #ddd6fe);">
+            <div class="product-emoji">🏥</div>
+            <button class="wish-btn">♡</button>
+          </div>
+          <div class="product-info">
+            <span class="product-brand">닥터펫</span>
+            <h3 class="product-name">관절 건강 영양제 오메가3 60정</h3>
+            <div class="product-rating">
+              <span class="stars">★★★★★</span>
+              <span class="review-count">(1,109)</span>
+            </div>
+            <div class="product-price">
+              <span class="original-price">28,000원</span>
+              <span class="sale-price">23,800원</span>
+              <span class="discount-rate">15%</span>
+            </div>
+          </div>
+          <button class="btn btn-primary add-cart">장바구니 담기</button>
+        </div>
+
+        <div class="product-card">
+          <div class="product-img" style="background: linear-gradient(135deg, #fff7ed, #fed7aa);">
+            <div class="product-emoji">🎒</div>
+            <span class="badge badge-new">NEW</span>
+            <button class="wish-btn">♡</button>
+          </div>
+          <div class="product-info">
+            <span class="product-brand">어반펫</span>
+            <h3 class="product-name">항공 기내반입 가능 투명 펫캐리어</h3>
+            <div class="product-rating">
+              <span class="stars">★★★★☆</span>
+              <span class="review-count">(318)</span>
+            </div>
+            <div class="product-price">
+              <span class="sale-price">75,000원</span>
+            </div>
+          </div>
+          <button class="btn btn-primary add-cart">장바구니 담기</button>
+        </div>
+
+      </div>
+
+      <div class="load-more-wrap">
+        <button class="btn btn-outline-large">상품 더보기</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 브랜드 파트너 -->
+  <section class="brands-section">
+    <div class="container">
+      <h2 class="brands-title">인기 브랜드</h2>
+      <div class="brands-strip">
+        <div class="brand-item">오리젠</div>
+        <div class="brand-item">로얄캐닌</div>
+        <div class="brand-item">힐스</div>
+        <div class="brand-item">네이처스베스트</div>
+        <div class="brand-item">퍼피러브</div>
+        <div class="brand-item">닥터펫</div>
+        <div class="brand-item">캣토이</div>
+        <div class="brand-item">어반펫</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 신상품 섹션 -->
+  <section class="section new-arrivals">
+    <div class="container">
+      <div class="section-header">
+        <h2>신상품</h2>
+        <a href="#" class="view-all">전체보기 →</a>
+      </div>
+      <div class="new-arrivals-grid">
+
+        <div class="new-arrival-card">
+          <div class="na-img" style="background:linear-gradient(135deg,#fef9c3,#fde047);">
+            <div class="na-emoji">🌟</div>
+          </div>
+          <div class="na-info">
+            <span class="product-brand">퍼피러브</span>
+            <h4>여름 쿨링 하네스 S/M/L</h4>
+            <span class="na-price">24,900원</span>
+          </div>
+        </div>
+
+        <div class="new-arrival-card">
+          <div class="na-img" style="background:linear-gradient(135deg,#cffafe,#67e8f9);">
+            <div class="na-emoji">🐾</div>
+          </div>
+          <div class="na-info">
+            <span class="product-brand">캣라이프</span>
+            <h4>고양이 자동 급수기 2.5L</h4>
+            <span class="na-price">38,000원</span>
+          </div>
+        </div>
+
+        <div class="new-arrival-card">
+          <div class="na-img" style="background:linear-gradient(135deg,#ffe4e6,#fecdd3);">
+            <div class="na-emoji">💊</div>
+          </div>
+          <div class="na-info">
+            <span class="product-brand">닥터펫</span>
+            <h4>반려견 프로바이오틱스 30포</h4>
+            <span class="na-price">32,000원</span>
+          </div>
+        </div>
+
+        <div class="new-arrival-card">
+          <div class="na-img" style="background:linear-gradient(135deg,#dcfce7,#86efac);">
+            <div class="na-emoji">🏠</div>
+          </div>
+          <div class="na-info">
+            <span class="product-brand">홈펫</span>
+            <h4>천연소재 고양이 스크래처 타워</h4>
+            <span class="na-price">89,000원</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 고객 후기 -->
+  <section class="section reviews-section">
+    <div class="container">
+      <div class="section-header center">
+        <h2>고객 후기</h2>
+        <p>PawLove를 사랑하는 반려인들의 생생한 리뷰</p>
+      </div>
+      <div class="reviews-grid">
+
+        <div class="review-card">
+          <div class="review-top">
+            <div class="reviewer-avatar" style="background:#fde68a;">🐶</div>
+            <div>
+              <strong>골든맘 김지은</strong>
+              <div class="stars small">★★★★★</div>
+            </div>
+          </div>
+          <p class="review-text">"오리젠 사료로 바꾸고 나서 털이 훨씬 윤기나고 소화도 잘 해요. 우리 뽀미가 정말 좋아해서 재구매는 필수입니다!"</p>
+          <span class="review-product">오리지널 그레인프리 사료</span>
+        </div>
+
+        <div class="review-card">
+          <div class="review-top">
+            <div class="reviewer-avatar" style="background:#bfdbfe;">🐱</div>
+            <div>
+              <strong>냥집사 박민수</strong>
+              <div class="stars small">★★★★★</div>
+            </div>
+          </div>
+          <p class="review-text">"자동 급수기 정말 편해요! 필터도 잘 되어 있고 소음도 거의 없어서 고양이가 잘 마셔요. 배송도 빠르고 포장도 꼼꼼했습니다."</p>
+          <span class="review-product">고양이 자동 급수기 2.5L</span>
+        </div>
+
+        <div class="review-card">
+          <div class="review-top">
+            <div class="reviewer-avatar" style="background:#d1fae5;">🐹</div>
+            <div>
+              <strong>햄스터집사 이수연</strong>
+              <div class="stars small">★★★★☆</div>
+            </div>
+          </div>
+          <p class="review-text">"침대가 정말 푹신해서 우리 강아지가 하루종일 거기에만 있어요 ㅋㅋ 세탁도 가능하고 모양도 오래 유지되네요. 강추!"</p>
+          <span class="review-product">메모리폼 정형외과 쿠션 침대</span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- 혜택 섹션 -->
+  <section class="benefits-section">
+    <div class="container">
+      <div class="benefits-grid">
+        <div class="benefit-item">
+          <div class="benefit-icon">🚚</div>
+          <h4>무료배송</h4>
+          <p>5만원 이상 구매 시<br />전국 무료배송</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">🔄</div>
+          <h4>간편 반품</h4>
+          <p>구매 후 30일 이내<br />무료 반품 가능</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">🎁</div>
+          <h4>적립 혜택</h4>
+          <p>구매 금액의 3%<br />포인트 적립</p>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon">💬</div>
+          <h4>1:1 상담</h4>
+          <p>펫 전문가와 함께하는<br />맞춤 상품 추천</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 푸터 -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <a href="#" class="logo">
+            <span class="logo-icon">🐾</span>
+            <span class="logo-text" style="color:#fff;">PawLove</span>
+          </a>
+          <p>반려동물과 함께하는 행복한 일상,<br />PawLove가 함께합니다.</p>
+          <div class="social-links">
+            <a href="#">📘</a>
+            <a href="#">📸</a>
+            <a href="#">🐦</a>
+            <a href="#">▶️</a>
+          </div>
+        </div>
+
+        <div class="footer-links">
+          <div class="footer-col">
+            <h5>쇼핑</h5>
+            <a href="#">강아지 용품</a>
+            <a href="#">고양이 용품</a>
+            <a href="#">사료/간식</a>
+            <a href="#">건강/영양제</a>
+            <a href="#">신상품</a>
+          </div>
+          <div class="footer-col">
+            <h5>고객 지원</h5>
+            <a href="#">공지사항</a>
+            <a href="#">자주 묻는 질문</a>
+            <a href="#">1:1 문의</a>
+            <a href="#">배송 조회</a>
+            <a href="#">교환/반품</a>
+          </div>
+          <div class="footer-col">
+            <h5>회사 정보</h5>
+            <a href="#">회사소개</a>
+            <a href="#">브랜드 스토리</a>
+            <a href="#">파트너십</a>
+            <a href="#">채용</a>
+            <a href="#">블로그</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-legal">
+          <a href="#">이용약관</a>
+          <a href="#">개인정보처리방침</a>
+          <a href="#">사업자정보확인</a>
+        </div>
+        <p class="copyright">© 2026 PawLove. All rights reserved. 사업자등록번호: 123-45-67890 | 대표: 김반려 | 통신판매업신고번호: 2026-서울강남-0001</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

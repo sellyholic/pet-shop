@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pethroom 디자인 가이드</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f5f5f0;
+      --surface: #ffffff;
+      --surface-2: #fafaf7;
+      --border: #e8e8e2;
+      --text: #1a1a1a;
+      --text-muted: #888;
+      --text-light: #bbb;
+      --accent: #2c2c2c;
+      --tag-bg: #f0f0eb;
+      --radius: 12px;
+      --radius-sm: 6px;
+      --mono: 'JetBrains Mono', monospace;
+    }
+
+    body {
+      font-family: 'Noto Sans KR', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── LAYOUT ── */
+    .sidebar {
+      position: fixed;
+      left: 0; top: 0;
+      width: 240px;
+      height: 100vh;
+      background: var(--surface);
+      border-right: 1px solid var(--border);
+      overflow-y: auto;
+      padding: 28px 0;
+      z-index: 100;
+    }
+
+    .sidebar-logo {
+      padding: 0 24px 24px;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 12px;
+    }
+
+    .sidebar-logo .site-name {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .sidebar-logo h1 {
+      font-size: 1.15rem;
+      font-weight: 900;
+      letter-spacing: -0.5px;
+    }
+
+    .sidebar nav a {
+      display: block;
+      padding: 9px 24px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      text-decoration: none;
+      transition: all .15s;
+      border-left: 2px solid transparent;
+    }
+
+    .sidebar nav a:hover {
+      color: var(--text);
+      background: var(--tag-bg);
+      border-left-color: var(--text);
+    }
+
+    .sidebar nav .section-label {
+      display: block;
+      padding: 18px 24px 6px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-light);
+    }
+
+    .main {
+      margin-left: 240px;
+      padding: 56px 64px;
+      max-width: 1200px;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      margin-bottom: 80px;
+    }
+
+    .section-title {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .section-heading {
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: -1px;
+      margin-bottom: 6px;
+    }
+
+    .section-desc {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 36px;
+      max-width: 540px;
+      line-height: 1.7;
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin-bottom: 36px;
+    }
+
+    /* ── HERO HEADER ── */
+    .guide-hero {
+      background: var(--text);
+      color: #fff;
+      border-radius: 20px;
+      padding: 56px;
+      margin-bottom: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .guide-hero::before {
+      content: '';
+      position: absolute;
+      right: -60px; top: -60px;
+      width: 320px; height: 320px;
+      background: rgba(255,255,255,.04);
+      border-radius: 50%;
+    }
+
+    .guide-hero .meta {
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: .5;
+      margin-bottom: 16px;
+    }
+
+    .guide-hero h1 {
+      font-size: 2.8rem;
+      font-weight: 900;
+      letter-spacing: -2px;
+      margin-bottom: 12px;
+    }
+
+    .guide-hero p {
+      opacity: .6;
+      font-size: 1rem;
+      max-width: 480px;
+      line-height: 1.7;
+      margin-bottom: 32px;
+    }
+
+    .guide-hero .tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .guide-hero .tag {
+      background: rgba(255,255,255,.1);
+      border: 1px solid rgba(255,255,255,.15);
+      color: rgba(255,255,255,.8);
+      padding: 6px 14px;
+      border-radius: 100px;
+      font-size: 0.8rem;
+      font-weight: 500;
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      margin-bottom: 16px;
+    }
+
+    .card-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    /* ── COLOR PALETTE ── */
+    .palette-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+    }
+
+    .color-swatch {
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .swatch-block {
+      height: 96px;
+    }
+
+    .swatch-info {
+      background: var(--surface);
+      padding: 12px 14px;
+    }
+
+    .swatch-name {
+      font-size: 0.82rem;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .swatch-hex {
+      font-family: var(--mono);
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+
+    .swatch-role {
+      font-size: 0.7rem;
+      color: var(--text-light);
+      margin-top: 2px;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    .type-samples {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .type-row {
+      display: grid;
+      grid-template-columns: 200px 1fr 140px;
+      align-items: baseline;
+      gap: 24px;
+      padding: 20px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .type-row:last-child { border-bottom: none; }
+
+    .type-meta {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .type-meta strong {
+      display: block;
+      color: var(--text);
+      font-size: 0.78rem;
+      margin-bottom: 4px;
+    }
+
+    .type-usage {
+      font-size: 0.72rem;
+      color: var(--text-light);
+      text-align: right;
+    }
+
+    /* ── SPACING ── */
+    .spacing-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .spacing-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .spacing-bar {
+      background: #e8e8e2;
+      height: 36px;
+      border-radius: 4px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 0 10px;
+    }
+
+    .spacing-label {
+      font-family: var(--mono);
+      font-size: 0.72rem;
+      font-weight: 600;
+      min-width: 80px;
+      color: var(--text-muted);
+    }
+
+    .spacing-name {
+      font-size: 0.78rem;
+      font-weight: 600;
+      min-width: 120px;
+    }
+
+    .spacing-note {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    /* ── COMPONENT GRID ── */
+    .comp-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    .comp-card {
+      background: var(--surface-2);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .comp-preview {
+      padding: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 120px;
+      border-bottom: 1px solid var(--border);
+      background: var(--surface);
+    }
+
+    .comp-details {
+      padding: 16px 20px;
+    }
+
+    .comp-name {
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .comp-spec {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      color: var(--text-muted);
+      line-height: 1.8;
+    }
+
+    /* ── PETHROOM ACTUAL COMPONENTS ── */
+
+    /* Buttons */
+    .btn-ph-primary {
+      background: #1a1a1a;
+      color: #fff;
+      border: none;
+      padding: 14px 28px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      cursor: pointer;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    .btn-ph-outline {
+      background: transparent;
+      color: #1a1a1a;
+      border: 1.5px solid #1a1a1a;
+      padding: 13px 28px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    .btn-ph-cart {
+      background: #f5f5f0;
+      color: #1a1a1a;
+      border: 1px solid #e0e0d8;
+      padding: 13px 28px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    /* Product card */
+    .product-card-preview {
+      width: 200px;
+      font-family: 'Noto Sans KR', sans-serif;
+    }
+
+    .pc-img {
+      width: 100%;
+      aspect-ratio: 1/1;
+      background: #f0ede8;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      margin-bottom: 12px;
+      position: relative;
+    }
+
+    .pc-badge {
+      position: absolute;
+      top: 8px; left: 8px;
+      background: #1a1a1a;
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      letter-spacing: 1px;
+    }
+
+    .pc-brand {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: #888;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .pc-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      line-height: 1.4;
+      margin-bottom: 8px;
+      color: #1a1a1a;
+    }
+
+    .pc-price-group {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+
+    .pc-original {
+      font-size: 0.72rem;
+      color: #bbb;
+      text-decoration: line-through;
+    }
+
+    .pc-discount {
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: #1a1a1a;
+    }
+
+    .pc-vip {
+      font-size: 0.72rem;
+      color: #c8a96e;
+      font-weight: 600;
+    }
+
+    /* Price badge */
+    .price-badge-vip {
+      background: #c8a96e;
+      color: #fff;
+      font-size: 0.65rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      letter-spacing: 0.5px;
+    }
+
+    /* Nav item */
+    .nav-demo {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid #e8e8e2;
+    }
+
+    .nav-item-ph {
+      padding: 14px 20px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      color: #888;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      text-transform: uppercase;
+    }
+
+    .nav-item-ph.active {
+      color: #1a1a1a;
+      border-bottom-color: #1a1a1a;
+    }
+
+    /* Filter tabs */
+    .filter-demo {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .filter-chip {
+      padding: 8px 18px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1.5px solid #e8e8e2;
+      background: #fff;
+      cursor: pointer;
+      color: #888;
+      letter-spacing: 0.3px;
+    }
+
+    .filter-chip.active {
+      background: #1a1a1a;
+      color: #fff;
+      border-color: #1a1a1a;
+    }
+
+    /* ── LAYOUT DIAGRAM ── */
+    .layout-diagram {
+      border: 1.5px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--surface);
+    }
+
+    .layout-diagram .ld-row {
+      display: flex;
+      border-bottom: 1px dashed var(--border);
+    }
+    .layout-diagram .ld-row:last-child { border-bottom: none; }
+
+    .ld-block {
+      padding: 14px 18px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .ld-block .ld-name { color: var(--text); }
+    .ld-block .ld-spec { font-family: var(--mono); color: var(--text-muted); font-weight: 400; font-size: 0.7rem; }
+
+    /* ── PATTERN TABLE ── */
+    .pattern-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .pattern-table th {
+      text-align: left;
+      padding: 10px 16px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: var(--tag-bg);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .pattern-table td {
+      padding: 14px 16px;
+      font-size: 0.85rem;
+      border-bottom: 1px solid var(--border);
+      vertical-align: top;
+    }
+
+    .pattern-table tr:last-child td { border-bottom: none; }
+
+    .pattern-table td:first-child { font-weight: 700; font-size: 0.8rem; }
+
+    .mono { font-family: var(--mono); font-size: 0.78rem; color: #555; background: var(--tag-bg); padding: 2px 6px; border-radius: 4px; }
+
+    /* ── GRID DEMO ── */
+    .grid-demo {
+      display: grid;
+      gap: 8px;
+    }
+
+    .grid-cell {
+      background: var(--tag-bg);
+      border: 1px dashed var(--border);
+      border-radius: 6px;
+      padding: 20px 10px;
+      text-align: center;
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--text-muted);
+    }
+
+    /* ── SHADOW DEMO ── */
+    .shadow-row {
+      display: flex;
+      gap: 20px;
+      align-items: flex-end;
+      flex-wrap: wrap;
+    }
+
+    .shadow-box {
+      width: 100px;
+      height: 100px;
+      background: #fff;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    .shadow-box .s-name { font-size: 0.7rem; font-weight: 700; }
+    .shadow-box .s-val { font-family: var(--mono); font-size: 0.6rem; color: var(--text-muted); text-align: center; }
+
+    /* ── MISC ── */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+    .annotation {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      border-left: 3px solid var(--border);
+      padding-left: 16px;
+      margin-top: 20px;
+    }
+    .annotation strong { color: var(--text); }
+    .tag-pill {
+      display: inline-block;
+      background: var(--tag-bg);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      margin: 2px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="site-name">Design Guide</span>
+      <h1>Pethroom</h1>
+    </div>
+    <nav>
+      <span class="section-label">Foundation</span>
+      <a href="#colors">Color Palette</a>
+      <a href="#typography">Typography</a>
+      <a href="#spacing">Spacing Scale</a>
+      <a href="#radius">Border Radius</a>
+      <a href="#shadow">Shadow</a>
+
+      <span class="section-label">Layout</span>
+      <a href="#grid">Grid System</a>
+      <a href="#layout">Page Layout</a>
+      <a href="#sections">섹션 구성</a>
+
+      <span class="section-label">Components</span>
+      <a href="#buttons">Buttons</a>
+      <a href="#nav">Navigation</a>
+      <a href="#product-card">Product Card</a>
+      <a href="#badges">Badges & Tags</a>
+      <a href="#filters">Filter Chips</a>
+      <a href="#price">Price Display</a>
+
+      <span class="section-label">Pattern</span>
+      <a href="#tone">Brand Tone</a>
+      <a href="#do-dont">Do / Don't</a>
+    </nav>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- HERO -->
+    <div class="guide-hero">
+      <p class="meta">Design System · 2026</p>
+      <h1>Pethroom<br />Design Guide</h1>
+      <p>pethroom.com 분석을 바탕으로 정리한 색상, 타이포그래피, 레이아웃, 컴포넌트 패턴 가이드입니다.</p>
+      <div class="tags">
+        <span class="tag">Color Palette</span>
+        <span class="tag">Typography</span>
+        <span class="tag">Spacing</span>
+        <span class="tag">Grid System</span>
+        <span class="tag">Components</span>
+        <span class="tag">Brand Tone</span>
+      </div>
+    </div>
+
+    <!-- ① COLOR PALETTE -->
+    <section class="section" id="colors">
+      <p class="section-title">Foundation 01</p>
+      <h2 class="section-heading">Color Palette</h2>
+      <p class="section-desc">Pethroom은 따뜻한 오프화이트와 짙은 차콜을 기반으로 하며, 골드 톤을 VIP/프리미엄 강조색으로 사용합니다.</p>
+      <div class="divider"></div>
+
+      <div class="card">
+        <p class="card-label">Primary Colors</p>
+        <div class="palette-grid">
+          <div class="color-swatch">
+            <div class="swatch-block" style="background:#1a1a1a;"></div>
+            <div class="swatch-info">
+              <p class="swatch-name">Charcoal Black</p>
+              <p class="swatch-hex">#1A1A1A</p>
+              <p class="swatch-role">주 텍스트, CTA 버튼</p>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="swatch-block" style="background:#2c2c2c;"></div>
+            <div class="swatch-info">
+              <p class="swatch-name">Deep Gray</p>
+              <p class="swatch-hex">#2C2C2C</p>
+              <p class="swatch-role">헤더 배경, 타이틀</p>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="swatch-block" style="background:#ffffff; border-bottom:1px solid #e8e8e2;"></div>
+            <div class="swatch-info">
+              <p class="swatch-name">Pure White</p>
+              <p class="swatch-hex">#FFFFFF</p>
+              <p class="swatch-role">카드 배경, 텍스트 반전</p>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="swatch-block" style="background:#f5f5f0;"></div>
+            <div class="swatch-info">
+              <p class="swatch-name">Warm Off-White</p>
+              <p class="swatch-hex">#F5F5F0</p>
+              <p class="swatch-role">페이지 배경, 보조 버튼</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <p class="card-label">Accent & Status Colors</p>
+        <div class="palette-grid">
+          <div class="color-swatch">
+            <div class="swatch-block" style="background:#c8a96e;"></div>
+            <div class="swatch-info">
+              <p class="swatch-name">VIP Gold</p>
+              <p class="swatch-hex">#C8A96E</p>
+              <p class="swatch-role">VIP 뱃지, 프리미엄 강조</p>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="swatch-block" style="background:#d4915a;"></div>
+            <div class="swatch-info">
+              <p class="swatch-name">Warm Amber</p>
+              <p class="swatch-hex">#D4915A</p>
+              <p class="swatch-role">이벤트 배너 포인트</p>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="swatch-block" style="background:#e63946;"></div>
+            <div class="swatch-info">
+              <p class="swatch-name">Sale Red</p>
+              <p class="swatch-hex">#E63946</p>
+              <p class="swatch-role">SALE 뱃지, 할인율 강조</p>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="swatch-block" style="background:#888888;"></div>
+            <div class="swatch-info">
+              <p class="swatch-name">Mid Gray</p>
+              <p class="swatch-hex">#888888</p>
+              <p class="swatch-role">보조 텍스트, 브랜드명</p>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="swatch-block" style="background:#e8e8e2;"></div>
+            <div class="swatch-info">
+              <p class="swatch-name">Border Gray</p>
+              <p class="swatch-hex">#E8E8E2</p>
+              <p class="swatch-role">선, 구분선, 테두리</p>
+            </div>
+          </div>
+          <div class="color-swatch">
+            <div class="swatch-block" style="background:#f0ede8;"></div>
+            <div class="swatch-info">
+              <p class="swatch-name">Warm Stone</p>
+              <p class="swatch-hex">#F0EDE8</p>
+              <p class="swatch-role">상품 이미지 배경</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="annotation">
+        <strong>컬러 원칙:</strong> 유색 컬러를 최소화하고 블랙/오프화이트 대비로 프리미엄감을 구현합니다. 골드(#C8A96E)는 VIP 전용으로만 사용해 희소성을 유지합니다. 빨간색은 SALE 상황에만 허용됩니다.
+      </div>
+    </section>
+
+    <!-- ② TYPOGRAPHY -->
+    <section class="section" id="typography">
+      <p class="section-title">Foundation 02</p>
+      <h2 class="section-heading">Typography</h2>
+      <p class="section-desc">명확한 정보 위계를 위해 weight와 letter-spacing으로 계층을 구분합니다. 한글은 Noto Sans KR, 영문 라벨은 letter-spacing을 넓게 사용합니다.</p>
+      <div class="divider"></div>
+
+      <div class="card">
+        <p class="card-label">Font Family</p>
+        <div class="two-col">
+          <div>
+            <p style="font-size:0.72rem;color:#888;margin-bottom:8px;">KOREAN — Primary</p>
+            <p style="font-size:1.5rem;font-weight:700;letter-spacing:-0.5px;">Noto Sans KR</p>
+            <p style="font-size:0.78rem;color:#888;margin-top:6px;font-family:monospace;">font-family: 'Noto Sans KR', sans-serif</p>
+          </div>
+          <div>
+            <p style="font-size:0.72rem;color:#888;margin-bottom:8px;">FALLBACK — System</p>
+            <p style="font-size:1.5rem;font-weight:700;">Apple SD Gothic Neo</p>
+            <p style="font-size:0.78rem;color:#888;margin-top:6px;font-family:monospace;">'Apple SD Gothic Neo', sans-serif</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <p class="card-label">Type Scale</p>
+        <div class="type-samples">
+          <div class="type-row">
+            <div class="type-meta">
+              <strong>Display</strong>
+              48px / weight 900<br/>
+              letter-spacing: -2px<br/>
+              line-height: 1.1
+            </div>
+            <div style="font-size:2.6rem;font-weight:900;letter-spacing:-2px;line-height:1.1;">PawLove</div>
+            <div class="type-usage">Hero 타이틀</div>
+          </div>
+          <div class="type-row">
+            <div class="type-meta">
+              <strong>H1</strong>
+              32px / weight 800<br/>
+              letter-spacing: -1px<br/>
+              line-height: 1.2
+            </div>
+            <div style="font-size:2rem;font-weight:800;letter-spacing:-1px;">프리미엄 반려용품</div>
+            <div class="type-usage">섹션 타이틀</div>
+          </div>
+          <div class="type-row">
+            <div class="type-meta">
+              <strong>H2</strong>
+              22px / weight 700<br/>
+              letter-spacing: -0.3px<br/>
+              line-height: 1.3
+            </div>
+            <div style="font-size:1.375rem;font-weight:700;letter-spacing:-0.3px;">오리지널 그레인프리 사료</div>
+            <div class="type-usage">상품명, 카드 제목</div>
+          </div>
+          <div class="type-row">
+            <div class="type-meta">
+              <strong>Body</strong>
+              15px / weight 400<br/>
+              letter-spacing: 0<br/>
+              line-height: 1.7
+            </div>
+            <div style="font-size:0.9375rem;font-weight:400;line-height:1.7;">반려동물과 함께하는 일상에 프리미엄을 더합니다. 엄선된 원재료로 만든 제품을 합리적인 가격으로 제공합니다.</div>
+            <div class="type-usage">본문, 설명</div>
+          </div>
+          <div class="type-row">
+            <div class="type-meta">
+              <strong>Label / Nav</strong>
+              13px / weight 700<br/>
+              letter-spacing: 1.5px<br/>
+              text-transform: uppercase
+            </div>
+            <div style="font-size:0.8125rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;">SHOP · VIP CENTER · EVENT</div>
+            <div class="type-usage">네비게이션, 라벨</div>
+          </div>
+          <div class="type-row">
+            <div class="type-meta">
+              <strong>Price</strong>
+              18px / weight 800<br/>
+              letter-spacing: -0.5px
+            </div>
+            <div style="font-size:1.125rem;font-weight:800;letter-spacing:-0.5px;">46,400원</div>
+            <div class="type-usage">판매가, 할인가</div>
+          </div>
+          <div class="type-row">
+            <div class="type-meta">
+              <strong>Caption</strong>
+              12px / weight 400<br/>
+              color: #888
+            </div>
+            <div style="font-size:0.75rem;font-weight:400;color:#888;">VIP혜택가 · 일반할인가 · 정기배송 35% 추가</div>
+            <div class="type-usage">보조 정보, 캡션</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ③ SPACING -->
+    <section class="section" id="spacing">
+      <p class="section-title">Foundation 03</p>
+      <h2 class="section-heading">Spacing Scale</h2>
+      <p class="section-desc">4px 베이스 단위의 8-point 그리드 시스템을 사용합니다.</p>
+      <div class="divider"></div>
+
+      <div class="card">
+        <div class="spacing-grid">
+          <div class="spacing-row">
+            <span class="spacing-label">xs — 4px</span>
+            <div class="spacing-bar" style="width:4px;"></div>
+            <span class="spacing-name">Extra Small</span>
+            <span class="spacing-note">아이콘·텍스트 간 미세 간격</span>
+          </div>
+          <div class="spacing-row">
+            <span class="spacing-label">sm — 8px</span>
+            <div class="spacing-bar" style="width:8px;"></div>
+            <span class="spacing-name">Small</span>
+            <span class="spacing-note">뱃지 패딩, 칩 내부</span>
+          </div>
+          <div class="spacing-row">
+            <span class="spacing-label">md — 16px</span>
+            <div class="spacing-bar" style="width:16px;"></div>
+            <span class="spacing-name">Medium</span>
+            <span class="spacing-note">카드 내부 패딩, 컴포넌트 간격</span>
+          </div>
+          <div class="spacing-row">
+            <span class="spacing-label">lg — 24px</span>
+            <div class="spacing-bar" style="width:24px;"></div>
+            <span class="spacing-name">Large</span>
+            <span class="spacing-note">카드 간격, 그리드 gap</span>
+          </div>
+          <div class="spacing-row">
+            <span class="spacing-label">xl — 40px</span>
+            <div class="spacing-bar" style="width:40px;"></div>
+            <span class="spacing-name">X-Large</span>
+            <span class="spacing-note">섹션 내부 상하 패딩</span>
+          </div>
+          <div class="spacing-row">
+            <span class="spacing-label">2xl — 64px</span>
+            <div class="spacing-bar" style="width:64px;"></div>
+            <span class="spacing-name">2X-Large</span>
+            <span class="spacing-note">섹션 간 여백</span>
+          </div>
+          <div class="spacing-row">
+            <span class="spacing-label">3xl — 96px</span>
+            <div class="spacing-bar" style="width:96px;"></div>
+            <span class="spacing-name">3X-Large</span>
+            <span class="spacing-note">Hero 상하 패딩</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ④ BORDER RADIUS -->
+    <section class="section" id="radius">
+      <p class="section-title">Foundation 04</p>
+      <h2 class="section-heading">Border Radius</h2>
+      <p class="section-desc">Pethroom은 sharp edge를 선호합니다. 버튼과 뱃지는 둥글기가 없거나 최소화되어 있으며, 프리미엄·미니멀 이미지를 강화합니다.</p>
+      <div class="divider"></div>
+
+      <div class="card">
+        <div style="display:flex;gap:32px;flex-wrap:wrap;align-items:flex-end;">
+          <div style="text-align:center;">
+            <div style="width:80px;height:80px;background:#1a1a1a;border-radius:0;margin-bottom:10px;"></div>
+            <p style="font-size:0.72rem;font-weight:700;">None</p>
+            <p class="mono">0px</p>
+            <p style="font-size:0.7rem;color:#888;margin-top:4px;">버튼, 뱃지, 이미지</p>
+          </div>
+          <div style="text-align:center;">
+            <div style="width:80px;height:80px;background:#1a1a1a;border-radius:2px;margin-bottom:10px;"></div>
+            <p style="font-size:0.72rem;font-weight:700;">XS</p>
+            <p class="mono">2px</p>
+            <p style="font-size:0.7rem;color:#888;margin-top:4px;">SALE 뱃지</p>
+          </div>
+          <div style="text-align:center;">
+            <div style="width:80px;height:80px;background:#1a1a1a;border-radius:4px;margin-bottom:10px;"></div>
+            <p style="font-size:0.72rem;font-weight:700;">SM</p>
+            <p class="mono">4px</p>
+            <p style="font-size:0.7rem;color:#888;margin-top:4px;">입력 필드, 태그</p>
+          </div>
+          <div style="text-align:center;">
+            <div style="width:80px;height:80px;background:#888;border-radius:8px;margin-bottom:10px;"></div>
+            <p style="font-size:0.72rem;font-weight:700;">MD</p>
+            <p class="mono">8px</p>
+            <p style="font-size:0.7rem;color:#888;margin-top:4px;">보조 카드, 팝업</p>
+          </div>
+        </div>
+        <div class="annotation" style="margin-top:20px;">
+          <strong>핵심 원칙:</strong> 기본 버튼과 주요 CTA는 border-radius: 0 (Sharp). rounded 처리는 보조적 UI 요소에만 제한적으로 사용합니다.
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑤ SHADOW -->
+    <section class="section" id="shadow">
+      <p class="section-title">Foundation 05</p>
+      <h2 class="section-heading">Shadow & Elevation</h2>
+      <p class="section-desc">그림자를 최소화해 플랫하고 정돈된 느낌을 유지합니다. 중요한 인터랙션 피드백에만 가벼운 그림자를 사용합니다.</p>
+      <div class="divider"></div>
+
+      <div class="card">
+        <div class="shadow-row">
+          <div style="text-align:center;">
+            <div class="shadow-box" style="box-shadow:none;border:1px solid #e8e8e2;">
+              <span class="s-name">None</span>
+              <span class="s-val">none</span>
+            </div>
+            <p style="font-size:0.7rem;color:#888;margin-top:10px;">기본 카드</p>
+          </div>
+          <div style="text-align:center;">
+            <div class="shadow-box" style="box-shadow:0 1px 4px rgba(0,0,0,.06);">
+              <span class="s-name">XS</span>
+              <span class="s-val">0 1px 4px<br/>rgba(0,0,0,.06)</span>
+            </div>
+            <p style="font-size:0.7rem;color:#888;margin-top:10px;">호버 상태</p>
+          </div>
+          <div style="text-align:center;">
+            <div class="shadow-box" style="box-shadow:0 4px 16px rgba(0,0,0,.1);">
+              <span class="s-name">MD</span>
+              <span class="s-val">0 4px 16px<br/>rgba(0,0,0,.10)</span>
+            </div>
+            <p style="font-size:0.7rem;color:#888;margin-top:10px;">드롭다운, 모달</p>
+          </div>
+          <div style="text-align:center;">
+            <div class="shadow-box" style="box-shadow:0 8px 32px rgba(0,0,0,.14);">
+              <span class="s-name">LG</span>
+              <span class="s-val">0 8px 32px<br/>rgba(0,0,0,.14)</span>
+            </div>
+            <p style="font-size:0.7rem;color:#888;margin-top:10px;">플로팅 패널</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑥ GRID SYSTEM -->
+    <section class="section" id="grid">
+      <p class="section-title">Layout 01</p>
+      <h2 class="section-heading">Grid System</h2>
+      <p class="section-desc">최대 너비 1280px 컨테이너 안에서 12-column 그리드를 기반으로 합니다. 상품 목록은 4열이 기본입니다.</p>
+      <div class="divider"></div>
+
+      <div class="card">
+        <p class="card-label">Container</p>
+        <table class="pattern-table">
+          <thead><tr><th>속성</th><th>값</th><th>설명</th></tr></thead>
+          <tbody>
+            <tr><td>max-width</td><td><span class="mono">1280px</span></td><td>전체 컨텐츠 최대 폭</td></tr>
+            <tr><td>padding (양측)</td><td><span class="mono">24px ~ 40px</span></td><td>화면 가장자리 여백</td></tr>
+            <tr><td>grid columns</td><td><span class="mono">12 columns</span></td><td>내부 레이아웃 기준선</td></tr>
+            <tr><td>column gap</td><td><span class="mono">20px ~ 24px</span></td><td>상품 카드 간격</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <p class="card-label">Product Grid — 4 Columns (기본)</p>
+        <div class="grid-demo" style="grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px;">
+          <div class="grid-cell">Col 1</div>
+          <div class="grid-cell">Col 2</div>
+          <div class="grid-cell">Col 3</div>
+          <div class="grid-cell">Col 4</div>
+        </div>
+        <p class="card-label" style="margin-top:8px;">Product Grid — 2 Columns (모바일)</p>
+        <div class="grid-demo" style="grid-template-columns:repeat(2,1fr);gap:10px;">
+          <div class="grid-cell">Col 1</div>
+          <div class="grid-cell">Col 2</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑦ PAGE LAYOUT -->
+    <section class="section" id="layout">
+      <p class="section-title">Layout 02</p>
+      <h2 class="section-heading">Page Layout</h2>
+      <p class="section-desc">상품 상세 페이지는 좌측 이미지 갤러리 + 우측 상품 정보의 2단 구조를 사용합니다.</p>
+      <div class="divider"></div>
+
+      <div class="card">
+        <p class="card-label">Product Detail Layout</p>
+        <div class="layout-diagram">
+          <div class="ld-row" style="background:#f0ede8;">
+            <div class="ld-block" style="flex:1;">
+              <span class="ld-name">Global Header</span>
+              <span class="ld-spec">height: 56~72px · sticky · border-bottom</span>
+            </div>
+          </div>
+          <div class="ld-row" style="background:#f5f5f2;">
+            <div class="ld-block" style="flex:1;">
+              <span class="ld-name">Category Navigation Bar</span>
+              <span class="ld-spec">height: 44px · border-bottom · uppercase labels</span>
+            </div>
+          </div>
+          <div class="ld-row">
+            <div class="ld-block" style="flex:1.1;border-right:1px dashed #e8e8e2;background:#fafaf8;">
+              <span class="ld-name">Product Image Gallery</span>
+              <span class="ld-spec">ratio: 1:1 · thumbnail strip below · sticky on scroll</span>
+            </div>
+            <div class="ld-block" style="flex:1;padding:20px 18px;">
+              <span class="ld-name">Product Info Panel</span>
+              <span class="ld-spec">Brand · Name · Price tiers · Options · CTA buttons · Delivery info</span>
+            </div>
+          </div>
+          <div class="ld-row" style="background:#f5f5f0;">
+            <div class="ld-block" style="flex:1;">
+              <span class="ld-name">Tab Navigation (상세정보 / 리뷰 / Q&amp;A)</span>
+              <span class="ld-spec">border-bottom active indicator · sticky on scroll</span>
+            </div>
+          </div>
+          <div class="ld-row">
+            <div class="ld-block" style="flex:1;">
+              <span class="ld-name">Product Detail Content (이미지 + 텍스트)</span>
+              <span class="ld-spec">full-width · centered · max-width: 860px</span>
+            </div>
+          </div>
+          <div class="ld-row" style="background:#1a1a1a;">
+            <div class="ld-block" style="flex:1;">
+              <span class="ld-name" style="color:#fff;">Footer</span>
+              <span class="ld-spec" style="color:#888;">dark bg · company info · sns links</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑧ SECTION 구성 -->
+    <section class="section" id="sections">
+      <p class="section-title">Layout 03</p>
+      <h2 class="section-heading">섹션 구성</h2>
+      <p class="section-desc">메인 페이지의 섹션 순서와 각 섹션의 역할을 정의합니다.</p>
+      <div class="divider"></div>
+
+      <div class="card">
+        <table class="pattern-table">
+          <thead><tr><th>#</th><th>섹션명</th><th>역할</th><th>디자인 패턴</th></tr></thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>공지 배너 (Top Bar)</td>
+              <td>프로모션 노출, VIP 혜택 안내</td>
+              <td>단색 bg · 소형 텍스트 · 클릭 유도</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>글로벌 헤더</td>
+              <td>로고, GNB 메뉴, 검색, 장바구니</td>
+              <td>sticky · white bg · uppercase 메뉴</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>카테고리 서브 메뉴</td>
+              <td>상품 카테고리 탐색</td>
+              <td>border-bottom 탭 · ALL/NEW/BEST 필터</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>히어로 배너</td>
+              <td>메인 프로모션, 계절 이벤트</td>
+              <td>풀와이드 이미지 · 캐러셀 · CTA 버튼</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>VIP 혜택 소개</td>
+              <td>멤버십 전환 유도</td>
+              <td>골드 강조 · 2단 레이아웃</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>신상품 / BEST 상품</td>
+              <td>상품 탐색 · 구매 유도</td>
+              <td>4열 그리드 · 이미지+텍스트 카드</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>이벤트 배너</td>
+              <td>기간 한정 이벤트 노출</td>
+              <td>이미지 풀블리드 · 카운트다운</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>고객 후기 / SNS</td>
+              <td>사회적 증거, 신뢰도 구축</td>
+              <td>사진 그리드 · 인스타그램 연동</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>푸터</td>
+              <td>정책, 회사정보, CS</td>
+              <td>다크 bg · 링크 목록 · SNS 아이콘</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ⑨ BUTTONS -->
+    <section class="section" id="buttons">
+      <p class="section-title">Components 01</p>
+      <h2 class="section-heading">Buttons</h2>
+      <p class="section-desc">버튼은 sharp edge (border-radius: 0)가 기본입니다. 위계는 filled → outline → ghost 순으로 정의합니다.</p>
+      <div class="divider"></div>
+
+      <div class="comp-grid">
+        <div class="comp-card">
+          <div class="comp-preview">
+            <button class="btn-ph-primary">구매하기</button>
+          </div>
+          <div class="comp-details">
+            <p class="comp-name">Primary Button</p>
+            <p class="comp-spec">
+              background: #1A1A1A<br/>
+              color: #FFFFFF<br/>
+              padding: 14px 28px<br/>
+              font-size: 14px / weight 700<br/>
+              border-radius: 0<br/>
+              usage: 주요 CTA (구매하기, 주문하기)
+            </p>
+          </div>
+        </div>
+
+        <div class="comp-card">
+          <div class="comp-preview">
+            <button class="btn-ph-outline">장바구니 담기</button>
+          </div>
+          <div class="comp-details">
+            <p class="comp-name">Outline Button</p>
+            <p class="comp-spec">
+              background: transparent<br/>
+              border: 1.5px solid #1A1A1A<br/>
+              color: #1A1A1A<br/>
+              padding: 13px 28px<br/>
+              font-size: 14px / weight 700<br/>
+              usage: 보조 CTA (장바구니, 찜하기)
+            </p>
+          </div>
+        </div>
+
+        <div class="comp-card">
+          <div class="comp-preview">
+            <button class="btn-ph-cart">정기배송 신청하기</button>
+          </div>
+          <div class="comp-details">
+            <p class="comp-name">Subtle Button</p>
+            <p class="comp-spec">
+              background: #F5F5F0<br/>
+              border: 1px solid #E0E0D8<br/>
+              color: #1A1A1A<br/>
+              padding: 13px 28px<br/>
+              font-size: 13px / weight 600<br/>
+              usage: 세번째 옵션 (정기배송, 더보기)
+            </p>
+          </div>
+        </div>
+
+        <div class="comp-card">
+          <div class="comp-preview" style="gap:10px;">
+            <button style="background:#c8a96e;color:#fff;border:none;padding:13px 24px;font-size:13px;font-weight:700;font-family:inherit;cursor:pointer;">VIP CENTER</button>
+          </div>
+          <div class="comp-details">
+            <p class="comp-name">VIP Gold Button</p>
+            <p class="comp-spec">
+              background: #C8A96E<br/>
+              color: #FFFFFF<br/>
+              padding: 13px 24px<br/>
+              font-size: 13px / weight 700<br/>
+              usage: VIP 전용 기능 진입점
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑩ NAVIGATION -->
+    <section class="section" id="nav">
+      <p class="section-title">Components 02</p>
+      <h2 class="section-heading">Navigation</h2>
+      <p class="section-desc">GNB는 uppercase + wide letter-spacing으로 브랜드 아이덴티티를 강조합니다. 활성 탭은 border-bottom으로 표시합니다.</p>
+      <div class="divider"></div>
+
+      <div class="card">
+        <p class="card-label">Global Navigation Bar</p>
+        <div class="nav-demo" style="margin-bottom:24px;">
+          <div class="nav-item-ph active">SHOP</div>
+          <div class="nav-item-ph">VIP CENTER</div>
+          <div class="nav-item-ph">FRIENDS</div>
+          <div class="nav-item-ph">EVENT</div>
+          <div class="nav-item-ph">ABOUT</div>
+          <div class="nav-item-ph">COMMUNITY</div>
+        </div>
+        <table class="pattern-table">
+          <thead><tr><th>속성</th><th>기본 상태</th><th>활성 상태</th></tr></thead>
+          <tbody>
+            <tr><td>font-size</td><td colspan="2"><span class="mono">13px</span></td></tr>
+            <tr><td>font-weight</td><td colspan="2"><span class="mono">700</span></td></tr>
+            <tr><td>letter-spacing</td><td colspan="2"><span class="mono">0.5px ~ 1px</span></td></tr>
+            <tr><td>text-transform</td><td colspan="2"><span class="mono">uppercase</span></td></tr>
+            <tr><td>color</td><td><span class="mono">#888888</span></td><td><span class="mono">#1A1A1A</span></td></tr>
+            <tr><td>border-bottom</td><td><span class="mono">2px solid transparent</span></td><td><span class="mono">2px solid #1A1A1A</span></td></tr>
+            <tr><td>padding</td><td colspan="2"><span class="mono">14px 20px</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ⑪ PRODUCT CARD -->
+    <section class="section" id="product-card">
+      <p class="section-title">Components 03</p>
+      <h2 class="section-heading">Product Card</h2>
+      <p class="section-desc">상품 카드는 이미지 → 브랜드명 → 상품명 → 3단 가격 구조를 따릅니다. 뱃지는 이미지 좌상단에 절대 배치합니다.</p>
+      <div class="divider"></div>
+
+      <div class="card">
+        <div style="display:flex;gap:40px;flex-wrap:wrap;">
+          <div>
+            <p class="card-label" style="margin-bottom:16px;">Product Card 예시</p>
+            <div class="product-card-preview">
+              <div class="pc-img">
+                🛁
+                <span class="pc-badge">BEST</span>
+              </div>
+              <p class="pc-brand">Pethroom</p>
+              <p class="pc-name">저자극 펫 샴푸 &amp; 컨디셔너 세트 500ml</p>
+              <div class="pc-price-group">
+                <span class="pc-original">32,000원</span>
+                <span class="pc-discount">22,400원 <span style="color:#e63946;font-size:0.78rem;">30%↓</span></span>
+                <span class="pc-vip">VIP혜택가 <span class="price-badge-vip">VIP</span> 14,560원</span>
+              </div>
+            </div>
+          </div>
+
+          <div style="flex:1;min-width:300px;">
+            <p class="card-label">Card 구조 명세</p>
+            <table class="pattern-table">
+              <thead><tr><th>요소</th><th>스펙</th></tr></thead>
+              <tbody>
+                <tr><td>이미지 비율</td><td><span class="mono">1:1 (aspect-ratio: 1)</span></td></tr>
+                <tr><td>이미지 배경</td><td><span class="mono">#F0EDE8 (Warm Stone)</span></td></tr>
+                <tr><td>뱃지 위치</td><td><span class="mono">top: 8px; left: 8px; absolute</span></td></tr>
+                <tr><td>브랜드명</td><td><span class="mono">12px / 700 / uppercase / #888</span></td></tr>
+                <tr><td>상품명</td><td><span class="mono">14px / 600 / #1A1A1A / 2줄 clamp</span></td></tr>
+                <tr><td>원가</td><td><span class="mono">12px / line-through / #BBB</span></td></tr>
+                <tr><td>할인가</td><td><span class="mono">16px / 800 / #1A1A1A</span></td></tr>
+                <tr><td>VIP가</td><td><span class="mono">12px / 600 / #C8A96E</span></td></tr>
+                <tr><td>카드 border-radius</td><td><span class="mono">0 (sharp)</span></td></tr>
+                <tr><td>hover</td><td><span class="mono">box-shadow 노출 또는 scale(1.01)</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑫ BADGES -->
+    <section class="section" id="badges">
+      <p class="section-title">Components 04</p>
+      <h2 class="section-heading">Badges & Tags</h2>
+      <p class="section-desc">뱃지는 용도에 따라 색상이 엄격히 구분됩니다. 모두 uppercase, sharp edge 처리합니다.</p>
+      <div class="divider"></div>
+
+      <div class="card">
+        <div style="display:flex;flex-wrap:wrap;gap:16px;align-items:center;margin-bottom:24px;">
+          <div style="text-align:center;">
+            <div style="background:#1a1a1a;color:#fff;font-size:0.65rem;font-weight:700;padding:4px 10px;letter-spacing:1px;margin-bottom:8px;">BEST</div>
+            <p class="comp-spec">인기상품</p>
+          </div>
+          <div style="text-align:center;">
+            <div style="background:#e63946;color:#fff;font-size:0.65rem;font-weight:700;padding:4px 10px;letter-spacing:1px;margin-bottom:8px;">SALE</div>
+            <p class="comp-spec">할인</p>
+          </div>
+          <div style="text-align:center;">
+            <div style="background:#2c5f8a;color:#fff;font-size:0.65rem;font-weight:700;padding:4px 10px;letter-spacing:1px;margin-bottom:8px;">NEW</div>
+            <p class="comp-spec">신상품</p>
+          </div>
+          <div style="text-align:center;">
+            <div style="background:#c8a96e;color:#fff;font-size:0.65rem;font-weight:700;padding:4px 10px;letter-spacing:1px;margin-bottom:8px;">VIP</div>
+            <p class="comp-spec">VIP 전용</p>
+          </div>
+          <div style="text-align:center;">
+            <div style="background:#2d6a4f;color:#fff;font-size:0.65rem;font-weight:700;padding:4px 10px;letter-spacing:1px;margin-bottom:8px;">EVENT</div>
+            <p class="comp-spec">이벤트</p>
+          </div>
+          <div style="text-align:center;">
+            <div style="border:1.5px solid #1a1a1a;color:#1a1a1a;font-size:0.65rem;font-weight:700;padding:3px 10px;letter-spacing:1px;margin-bottom:8px;">COLLABO</div>
+            <p class="comp-spec">콜라보</p>
+          </div>
+        </div>
+        <table class="pattern-table">
+          <thead><tr><th>뱃지</th><th>색상</th><th>사용 시점</th></tr></thead>
+          <tbody>
+            <tr><td>BEST</td><td><span class="mono">#1A1A1A</span></td><td>판매량 기준 인기상품</td></tr>
+            <tr><td>SALE</td><td><span class="mono">#E63946</span></td><td>기간 한정 할인 진행 중</td></tr>
+            <tr><td>NEW</td><td><span class="mono">#2C5F8A</span></td><td>최근 4주 이내 출시 상품</td></tr>
+            <tr><td>VIP</td><td><span class="mono">#C8A96E</span></td><td>VIP 전용 가격/혜택 존재</td></tr>
+            <tr><td>EVENT</td><td><span class="mono">#2D6A4F</span></td><td>이벤트 페이지 연계 상품</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ⑬ FILTER CHIPS -->
+    <section class="section" id="filters">
+      <p class="section-title">Components 05</p>
+      <h2 class="section-heading">Filter Chips</h2>
+      <p class="section-desc">카테고리 필터 탭은 장방형(sharp) 버튼으로 구성하며, 선택 시 배경색을 반전합니다.</p>
+      <div class="divider"></div>
+
+      <div class="card">
+        <p class="card-label" style="margin-bottom:16px;">Filter Chip 상태</p>
+        <div class="filter-demo" style="margin-bottom:24px;">
+          <div class="filter-chip active">ALL</div>
+          <div class="filter-chip">NEW</div>
+          <div class="filter-chip">BEST</div>
+          <div class="filter-chip">FOR DOG</div>
+          <div class="filter-chip">FOR CAT</div>
+          <div class="filter-chip">COLLABO</div>
+        </div>
+        <table class="pattern-table">
+          <thead><tr><th>상태</th><th>배경</th><th>텍스트</th><th>테두리</th></tr></thead>
+          <tbody>
+            <tr><td>Default</td><td><span class="mono">#FFFFFF</span></td><td><span class="mono">#888888</span></td><td><span class="mono">1.5px solid #E8E8E2</span></td></tr>
+            <tr><td>Active</td><td><span class="mono">#1A1A1A</span></td><td><span class="mono">#FFFFFF</span></td><td><span class="mono">1.5px solid #1A1A1A</span></td></tr>
+            <tr><td>Hover</td><td><span class="mono">#F5F5F0</span></td><td><span class="mono">#1A1A1A</span></td><td><span class="mono">1.5px solid #888</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- ⑭ PRICE DISPLAY -->
+    <section class="section" id="price">
+      <p class="section-title">Components 06</p>
+      <h2 class="section-heading">Price Display</h2>
+      <p class="section-desc">Pethroom은 일반가 → 할인가 → VIP가의 3단계 가격 체계를 사용합니다. 이 구조는 VIP 멤버십 가입을 유도하는 핵심 패턴입니다.</p>
+      <div class="divider"></div>
+
+      <div class="card">
+        <div style="display:flex;gap:48px;flex-wrap:wrap;">
+          <div>
+            <p class="card-label">3-Tier Price Structure</p>
+            <div style="margin-top:16px;display:flex;flex-direction:column;gap:6px;">
+              <span style="font-size:0.78rem;color:#bbb;text-decoration:line-through;">정가 50,000원</span>
+              <div style="display:flex;align-items:center;gap:8px;">
+                <span style="font-size:1.1rem;font-weight:800;">35,000원</span>
+                <span style="background:#e63946;color:#fff;font-size:0.65rem;font-weight:700;padding:2px 6px;">30%↓</span>
+              </div>
+              <div style="display:flex;align-items:center;gap:6px;">
+                <span style="font-size:0.78rem;color:#c8a96e;font-weight:600;">VIP혜택가</span>
+                <span style="background:#c8a96e;color:#fff;font-size:0.6rem;font-weight:700;padding:2px 6px;letter-spacing:0.5px;">VIP</span>
+                <span style="font-size:0.9rem;font-weight:800;color:#c8a96e;">22,750원</span>
+              </div>
+            </div>
+          </div>
+          <div style="flex:1;min-width:280px;">
+            <p class="card-label">명세</p>
+            <table class="pattern-table" style="margin-top:8px;">
+              <thead><tr><th>레이어</th><th>스타일</th><th>목적</th></tr></thead>
+              <tbody>
+                <tr><td>정가 (원가)</td><td><span class="mono">12px / line-through / #BBB</span></td><td>기준점 제시</td></tr>
+                <tr><td>일반할인가</td><td><span class="mono">18px / 800 / #1A1A1A</span></td><td>실제 구매가</td></tr>
+                <tr><td>할인율 뱃지</td><td><span class="mono">bg: #E63946 / 11px / 700</span></td><td>할인 강조</td></tr>
+                <tr><td>VIP 혜택가</td><td><span class="mono">14px / 800 / #C8A96E</span></td><td>멤버십 유도</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑮ BRAND TONE -->
+    <section class="section" id="tone">
+      <p class="section-title">Pattern 01</p>
+      <h2 class="section-heading">Brand Tone</h2>
+      <p class="section-desc">Pethroom의 브랜드 아이덴티티 키워드와 디자인 언어의 연결 관계입니다.</p>
+      <div class="divider"></div>
+
+      <div class="three-col">
+        <div class="card" style="border-top:3px solid #1a1a1a;">
+          <p class="card-label">Premium</p>
+          <p style="font-size:0.9rem;line-height:1.7;margin-top:8px;">Sharp edge, 절제된 컬러, uppercase 타이포그래피로 하이엔드 이미지 구현. 과도한 장식 금지.</p>
+        </div>
+        <div class="card" style="border-top:3px solid #c8a96e;">
+          <p class="card-label">Exclusive</p>
+          <p style="font-size:0.9rem;line-height:1.7;margin-top:8px;">VIP 골드 컬러를 멤버십 전용 UI에만 허용. 일반 사용자와 VIP의 시각적 차별화 유지.</p>
+        </div>
+        <div class="card" style="border-top:3px solid #e63946;">
+          <p class="card-label">Trustworthy</p>
+          <p style="font-size:0.9rem;line-height:1.7;margin-top:8px;">배송·반품 정보를 명확히 노출. 리뷰 수 및 평점 전면 배치. 과장 없는 정보 전달.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ⑯ DO / DON'T -->
+    <section class="section" id="do-dont">
+      <p class="section-title">Pattern 02</p>
+      <h2 class="section-heading">Do / Don't</h2>
+      <p class="section-desc">Pethroom 스타일을 유지하기 위해 반드시 지켜야 할 규칙입니다.</p>
+      <div class="divider"></div>
+
+      <div class="two-col">
+        <div class="card" style="border-color:#22c55e;">
+          <p class="card-label" style="color:#22c55e;">✓ DO</p>
+          <ul style="margin-top:12px;list-style:none;display:flex;flex-direction:column;gap:10px;">
+            <li style="font-size:0.875rem;display:flex;gap:10px;"><span style="color:#22c55e;font-weight:700;flex-shrink:0;">✓</span> 버튼에 border-radius: 0 사용</li>
+            <li style="font-size:0.875rem;display:flex;gap:10px;"><span style="color:#22c55e;font-weight:700;flex-shrink:0;">✓</span> 네비게이션 텍스트를 UPPERCASE로 처리</li>
+            <li style="font-size:0.875rem;display:flex;gap:10px;"><span style="color:#22c55e;font-weight:700;flex-shrink:0;">✓</span> 골드(#C8A96E)는 VIP 전용으로만 사용</li>
+            <li style="font-size:0.875rem;display:flex;gap:10px;"><span style="color:#22c55e;font-weight:700;flex-shrink:0;">✓</span> 상품 이미지 배경을 #F0EDE8 (Warm Stone) 사용</li>
+            <li style="font-size:0.875rem;display:flex;gap:10px;"><span style="color:#22c55e;font-weight:700;flex-shrink:0;">✓</span> 3단 가격 구조(정가→할인가→VIP가) 유지</li>
+            <li style="font-size:0.875rem;display:flex;gap:10px;"><span style="color:#22c55e;font-weight:700;flex-shrink:0;">✓</span> 뱃지는 용도별 고정 색상 준수</li>
+            <li style="font-size:0.875rem;display:flex;gap:10px;"><span style="color:#22c55e;font-weight:700;flex-shrink:0;">✓</span> 그림자는 hover/popup 상황에만 최소 사용</li>
+          </ul>
+        </div>
+        <div class="card" style="border-color:#ef4444;">
+          <p class="card-label" style="color:#ef4444;">✗ DON'T</p>
+          <ul style="margin-top:12px;list-style:none;display:flex;flex-direction:column;gap:10px;">
+            <li style="font-size:0.875rem;display:flex;gap:10px;"><span style="color:#ef4444;font-weight:700;flex-shrink:0;">✗</span> 버튼에 큰 border-radius 적용 (pill 버튼 금지)</li>
+            <li style="font-size:0.875rem;display:flex;gap:10px;"><span style="color:#ef4444;font-weight:700;flex-shrink:0;">✗</span> 골드 컬러를 일반 UI 요소에 사용</li>
+            <li style="font-size:0.875rem;display:flex;gap:10px;"><span style="color:#ef4444;font-weight:700;flex-shrink:0;">✗</span> 유채색(파랑, 초록 등)을 주 강조색으로 사용</li>
+            <li style="font-size:0.875rem;display:flex;gap:10px;"><span style="color:#ef4444;font-weight:700;flex-shrink:0;">✗</span> 진한 drop-shadow 남용</li>
+            <li style="font-size:0.875rem;display:flex;gap:10px;"><span style="color:#ef4444;font-weight:700;flex-shrink:0;">✗</span> 과장된 애니메이션 또는 장식 요소 추가</li>
+            <li style="font-size:0.875rem;display:flex;gap:10px;"><span style="color:#ef4444;font-weight:700;flex-shrink:0;">✗</span> VIP 뱃지를 멤버십 무관 상품에 부착</li>
+            <li style="font-size:0.875rem;display:flex;gap:10px;"><span style="color:#ef4444;font-weight:700;flex-shrink:0;">✗</span> 서체 혼용 (2종 이상 font-family 사용)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+  </main>
+</body>
+</html>
